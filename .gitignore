@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+
+# Node
+node_modules/
+build/
+dist/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Yarn
+yarn-error.log
+
+# VSCode
+.vscode/
+
+# Logs
+*.log
+
+# Misc
+*.swp
+*.swo
+
+# Ignore frontend build output if any
+frontend/build/
