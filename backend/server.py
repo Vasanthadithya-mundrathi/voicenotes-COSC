@@ -13,6 +13,15 @@ status_checks = []
 # Create the main app without a prefix
 app = FastAPI()
 
+# CORS middleware - restrict to frontend domain for security
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=True,
+    allow_origins=["https://voicenotes-cosc-rgn2.onrender.com"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
@@ -170,14 +179,6 @@ async def get_status_checks():
 
 # Include the router in the main app
 app.include_router(api_router)
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_credentials=True,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 # Configure logging
 logging.basicConfig(
